@@ -1,0 +1,11 @@
+{
+  "$id": "dsl2skillm/commands/unregister",
+  "type": "object",
+  "required": ["verb", "name"],
+  "properties": {
+    "verb": { "const": "UNREGISTER" },
+    "name": { "type": "string" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}

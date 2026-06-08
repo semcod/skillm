@@ -1,0 +1,11 @@
+{
+  "$id": "dsl2skillm/commands/health",
+  "type": "object",
+  "required": ["verb", "target"],
+  "properties": {
+    "verb": { "const": "HEALTH" },
+    "target": { "type": "string", "pattern": "^skillm://" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}

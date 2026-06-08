@@ -1,0 +1,14 @@
+{
+  "$id": "dsl2skillm/commands/invoke",
+  "type": "object",
+  "required": ["verb", "target"],
+  "properties": {
+    "verb": { "const": "INVOKE" },
+    "target": { "type": "string", "pattern": "^skillm://" },
+    "args_json": { "type": "string" },
+    "input_text": { "type": "string" },
+    "body": { "type": "string" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}

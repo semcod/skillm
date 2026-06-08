@@ -1,0 +1,10 @@
+{
+  "$id": "dsl2skillm/commands/validate",
+  "type": "object",
+  "required": ["verb", "path"],
+  "properties": {
+    "verb": { "const": "VALIDATE" },
+    "path": { "type": "string" }
+  },
+  "additionalProperties": false
+}

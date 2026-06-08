@@ -1,0 +1,11 @@
+{
+  "$id": "dsl2skillm/commands/query",
+  "type": "object",
+  "required": ["verb", "target"],
+  "properties": {
+    "verb": { "const": "QUERY" },
+    "target": { "type": "string", "pattern": "^skillm://" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}

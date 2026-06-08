@@ -1,0 +1,13 @@
+{
+  "$id": "dsl2skillm/commands/register",
+  "type": "object",
+  "required": ["verb", "name", "type"],
+  "properties": {
+    "verb": { "const": "REGISTER" },
+    "name": { "type": "string" },
+    "type": { "enum": ["python", "docker", "cli", "rest", "mcp"] },
+    "spec_json": { "type": "string" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}

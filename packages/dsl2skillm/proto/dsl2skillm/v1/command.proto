@@ -1,0 +1,65 @@
+syntax = "proto3";
+package dsl2skillm.v1;
+
+message ListCommand {}
+
+message QueryCommand {
+  string target = 1;
+  string file = 2;
+}
+
+message ValidateCommand {
+  string path = 1;
+}
+
+message HealthCommand {
+  string target = 1;
+}
+
+message ResolveCommand {
+  string text = 1;
+  string file = 2;
+}
+
+message RegisterCommand {
+  string name = 1;
+  string type = 2;
+  string spec_json = 3;
+  string file = 4;
+}
+
+message UnregisterCommand {
+  string name = 1;
+  string file = 2;
+}
+
+message InvokeCommand {
+  string target = 1;
+  string args_json = 2;
+  string input_text = 3;
+  string body = 4;
+  string file = 5;
+}
+
+message PatchCommand {
+  string target = 1;
+  string spec_json = 2;
+  string file = 3;
+}
+
+message DslEnvelope {
+  string verb = 1;
+  oneof body {
+    ListCommand list = 10;
+    QueryCommand query = 11;
+    ValidateCommand validate = 12;
+    HealthCommand health = 13;
+    ResolveCommand resolve = 14;
+    RegisterCommand register = 15;
+    UnregisterCommand unregister = 16;
+    InvokeCommand invoke = 17;
+    PatchCommand patch = 18;
+  }
+  string default_file = 20;
+  string correlation_id = 21;
+}

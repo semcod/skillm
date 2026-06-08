@@ -1,0 +1,10 @@
+{
+  "$id": "dsl2skillm/commands/list",
+  "type": "object",
+  "required": ["verb"],
+  "properties": {
+    "verb": { "const": "LIST" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}

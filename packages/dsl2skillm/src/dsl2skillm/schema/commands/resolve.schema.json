@@ -1,0 +1,11 @@
+{
+  "$id": "dsl2skillm/commands/resolve",
+  "type": "object",
+  "required": ["verb", "text"],
+  "properties": {
+    "verb": { "const": "RESOLVE" },
+    "text": { "type": "string" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}

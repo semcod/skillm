@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsl2skillm"
+version = "0.1.0"
+description = "skillm control DSL — register, invoke and manage reusable skills"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = [
+    "skillm>=0.1.0",
+    "nlp2skillm>=0.1.0",
+    "protobuf>=5.0",
+    "jsonschema>=4.0",
+]
+
+[project.optional-dependencies]
+codegen = ["grpcio-tools>=1.60"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+dsl2skillm = "dsl2skillm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"dsl2skillm" = ["schema/commands/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

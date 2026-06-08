@@ -1,0 +1,12 @@
+{
+  "$id": "dsl2skillm/commands/patch",
+  "type": "object",
+  "required": ["verb", "target", "spec_json"],
+  "properties": {
+    "verb": { "const": "PATCH" },
+    "target": { "type": "string", "pattern": "^skillm://" },
+    "spec_json": { "type": "string" },
+    "file": { "type": "string" }
+  },
+  "additionalProperties": false
+}
