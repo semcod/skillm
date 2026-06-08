@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Any
 
@@ -10,6 +11,10 @@ import yaml
 from skillm.models import Manifest, Skill
 
 DEFAULT_MANIFEST = "app.skillm.yaml"
+
+
+def _default_manifest_path() -> str:
+    return os.environ.get("SKILLM_MANIFEST", DEFAULT_MANIFEST)
 
 
 class SkillRegistry:
@@ -56,4 +61,4 @@ class SkillRegistry:
 
 
 def default_registry(manifest: str | None = None) -> SkillRegistry:
-    return SkillRegistry(manifest or DEFAULT_MANIFEST)
+    return SkillRegistry(manifest or _default_manifest_path())

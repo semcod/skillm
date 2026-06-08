@@ -15,12 +15,12 @@ ORDER=(
 
 for pkg in "${ORDER[@]}"; do
   echo "==> pip install -e $pkg"
-  pip install -e "$pkg"[dev] -q
+  python3 -m pip install -e "$pkg" -q
 done
 
 if [ -f packages/dsl2skillm/scripts/generate-proto.sh ]; then
   echo "==> generate protobuf"
-  pip install grpcio-tools -q
+  python3 -m pip install grpcio-tools -q
   bash packages/dsl2skillm/scripts/generate-proto.sh
   touch packages/dsl2skillm/src/dsl2skillm/v1/__init__.py
 fi

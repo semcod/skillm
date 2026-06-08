@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2026-06-08
+
+### Docs
+- Update README.md
+
+### Other
+- Update install-dev.sh
+- Update packages/dsl2skillm/src/dsl2skillm/uri.py
+- Update packages/dsl2skillm/src/dsl2skillm/v1/__init__.py
+- Update packages/dsl2skillm/src/dsl2skillm/v1/command_pb2.py
+- Update packages/dsl2skillm/src/dsl2skillm/v1/result_pb2.py
+- Update packages/dsl2skillm/tests/test_dsl2skillm.py
+- Update packages/mcp2skillm/tests/test_mcp2skillm.py
+- Update packages/nlp2skillm/tests/test_nlp2skillm.py
+- Update packages/rest2skillm/tests/test_rest2skillm.py
+- Update packages/skillm/src/skillm/registry.py
+- ... and 3 more files
+
 ## [0.0.2] - 2026-06-08
 
 ### Docs

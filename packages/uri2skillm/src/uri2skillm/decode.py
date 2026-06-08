@@ -5,16 +5,17 @@ from __future__ import annotations
 from urllib.parse import parse_qs, urlparse
 
 from dsl2skillm.grammar import to_text
+from dsl2skillm.uri import _path_parts
 
 
 def decode_uri(uri: str) -> str:
     parsed = urlparse(uri)
     if parsed.scheme != "skillm":
         raise ValueError(f"expected skillm:// URI, got {uri!r}")
-    path = parsed.path.lstrip("/")
-    if not path.startswith("cmd/"):
+    parts = _path_parts(uri)
+    if not parts or parts[0] != "cmd" or len(parts) < 2:
         raise ValueError(f"expected skillm://cmd/VERB, got {uri!r}")
-    verb = path.split("/", 1)[1].upper()
+    verb = parts[1].upper()
     qs = parse_qs(parsed.query)
     cmd: dict[str, str] = {"verb": verb}
     for key in ("target", "file", "path", "text", "name", "type", "spec_json", "args_json", "input_text", "body"):
