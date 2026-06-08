@@ -3,18 +3,21 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "nlp2skillm"
+name = "mcp2skillm"
 version = "0.1.0"
-description = "Natural language to skillm DSL"
+description = "MCP server for skillm — universal skill reuse for AI"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 dependencies = [
     "skillm>=0.1.0",
+    "dsl2skillm>=0.1.0",
+    "nlp2skillm>=0.1.0",
+    "mcp>=1.0",
 ]
 
 [project.scripts]
-nlp2skillm = "nlp2skillm.cli:main"
+mcp2skillm = "mcp2skillm.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

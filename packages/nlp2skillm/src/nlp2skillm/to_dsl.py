@@ -4,8 +4,19 @@ from __future__ import annotations
 
 import re
 
-from dsl2skillm.grammar import to_text
 from skillm.registry import default_registry
+
+
+def _to_text(cmd: dict) -> str:
+    verb = str(cmd.get("verb", "")).upper()
+    parts = [verb]
+    for key in ("target", "path", "text", "name"):
+        if val := cmd.get(key):
+            parts.append(f'"{val}"' if " " in str(val) else str(val))
+    for key, flag in (("file", "FILE"), ("type", "TYPE"), ("spec_json", "WITH")):
+        if val := cmd.get(key):
+            parts.extend([flag, str(val)])
+    return " ".join(parts)
 
 
 def _intent(text: str) -> str:
@@ -26,18 +37,18 @@ def _intent(text: str) -> str:
 def to_dsl(prompt: str, *, file: str = "app.skillm.yaml") -> str:
     intent = _intent(prompt)
     if intent == "list":
-        return to_text({"verb": "LIST", "file": file})
+        return _to_text({"verb": "LIST", "file": file})
     if intent == "validate":
-        return to_text({"verb": "VALIDATE", "path": file})
+        return _to_text({"verb": "VALIDATE", "path": file})
     if intent == "health":
         name = _extract_skill_name(prompt)
         if name:
-            return to_text({"verb": "HEALTH", "target": f"skillm://skill/{name}", "file": file})
+            return _to_text({"verb": "HEALTH", "target": f"skillm://skill/{name}", "file": file})
     if intent == "invoke":
         name = _extract_skill_name(prompt)
         if name:
-            return to_text({"verb": "INVOKE", "target": f"skillm://skill/{name}", "file": file})
-    return to_text({"verb": "RESOLVE", "text": prompt, "file": file})
+            return _to_text({"verb": "INVOKE", "target": f"skillm://skill/{name}", "file": file})
+    return _to_text({"verb": "RESOLVE", "text": prompt, "file": file})
 
 
 def apply_nl(prompt: str, *, file: str = "app.skillm.yaml") -> dict:

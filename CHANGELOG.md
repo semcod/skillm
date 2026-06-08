@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2026-06-08
+
+### Docs
+- Update examples/open-webui/README.md
+- Update packages/README.md
+- Update packages/cli2skillm/README.md
+- Update packages/mcp2skillm/README.md
+- Update packages/rest2skillm/README.md
+
+### Other
+- Update app.skillm.yaml
+- Update examples/open-webui/mcp-config.json
+- Update install-dev.sh
+- Update packages/mcp2skillm/pyproject.toml
+- Update packages/mcp2skillm/src/mcp2skillm/__init__.py
+- Update packages/mcp2skillm/src/mcp2skillm/cli.py
+- Update packages/mcp2skillm/src/mcp2skillm/server.py
+- Update packages/nlp2skillm/pyproject.toml
+- Update packages/nlp2skillm/src/nlp2skillm/to_dsl.py
+- Update packages/rest2skillm/pyproject.toml
+- ... and 3 more files
+
 ## [0.0.1] - 2026-06-08
 
 ### Docs

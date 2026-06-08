@@ -3,18 +3,20 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "nlp2skillm"
+name = "rest2skillm"
 version = "0.1.0"
-description = "Natural language to skillm DSL"
+description = "REST API for skillm control DSL"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 dependencies = [
-    "skillm>=0.1.0",
+    "dsl2skillm>=0.1.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
 ]
 
 [project.scripts]
-nlp2skillm = "nlp2skillm.cli:main"
+rest2skillm = "rest2skillm.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -1,0 +1,33 @@
+version: "1"
+skills:
+  echo-python:
+    type: python
+    description: Example Python callable skill
+    entry: skillm.examples.echo:run
+    args: ["skillm"]
+
+  echo-cli:
+    type: cli
+    description: Echo via shell command
+    command: echo
+    args: ["hello from skillm cli"]
+
+  httpbin-rest:
+    type: rest
+    description: HTTP GET via REST adapter
+    url: https://httpbin.org/get?skill=skillm
+    method: GET
+
+  mcp2skillm-ref:
+    type: mcp
+    description: Reference to skillm MCP server (stdio)
+    transport: stdio
+    command: mcp2skillm
+    args: ["serve"]
+
+  # Example: wrap another control-layer REST service (doql)
+  doql-rest:
+    type: rest
+    description: Delegate to rest2doql health endpoint
+    url: http://127.0.0.1:8210/health
+    method: GET

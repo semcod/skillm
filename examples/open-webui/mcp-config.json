@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "skillm": {
+      "command": "mcp2skillm",
+      "args": ["serve"],
+      "env": {
+        "SKILLM_MANIFEST": "/home/tom/github/semcod/skillm/app.skillm.yaml"
+      }
+    }
+  }
+}
