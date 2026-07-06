@@ -4,14 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dsl2skillm"
-version = "0.1.0"
+version = "0.0.4"
 description = "skillm control DSL — register, invoke and manage reusable skills"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
+authors = [{ name = "Tom Softreck", email = "tom@sapletta.com" }]
 dependencies = [
-    "skillm>=0.1.0",
-    "nlp2skillm>=0.1.0",
+    "skillm>=0.0.3",
+    "nlp2skillm>=0.0.3",
     "protobuf>=5.0",
     "jsonschema>=4.0",
 ]
@@ -22,6 +23,12 @@ dev = ["pytest>=8.0"]
 
 [project.scripts]
 dsl2skillm = "dsl2skillm.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/semcod/skillm"
+Repository = "https://github.com/semcod/skillm"
+Documentation = "https://github.com/semcod/skillm#readme"
+Issues = "https://github.com/semcod/skillm/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

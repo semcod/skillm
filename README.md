@@ -4,7 +4,23 @@ Uniwersalna warstwa **skill** dla AI przez protokół MCP — reużycie gotowych
 
 Schemat zgodny z [CONTROL_LAYER](https://github.com/oqlos/doql/blob/main/packages/CONTROL_LAYER_PROMPT.template.md): cienkie adaptery (`mcp2*`, `rest2*`, `cli2*`) delegują do `dsl2skillm.dispatch()`.
 
-## Szybki start
+## Instalacja (PyPI)
+
+```bash
+pip install skillm nlp2skillm dsl2skillm uri2skillm cli2skillm mcp2skillm rest2skillm
+# lub minimalnie MCP:
+pip install mcp2skillm
+```
+
+Opublikowane wersje: [skillm](https://pypi.org/project/skillm/0.0.3/), [nlp2skillm](https://pypi.org/project/nlp2skillm/0.0.3/).
+
+Pozostałe paczki (`dsl2skillm`, `uri2skillm`, `cli2skillm`, `mcp2skillm`, `rest2skillm`) — po limicie PyPI „too many new projects”:
+
+```bash
+bash scripts/publish-remaining.sh
+```
+
+## Instalacja (dev)
 
 ```bash
 cd /home/tom/github/semcod/skillm
@@ -86,11 +102,24 @@ UNREGISTER my-tool
 RESOLVE "python echo skill"
 ```
 
+## Struktura
+
+```
+skillm/              # główna paczka (core)
+packages/
+  dsl2skillm/
+  uri2skillm/
+  nlp2skillm/
+  cli2skillm/
+  mcp2skillm/
+  rest2skillm/
+```
+
 ## Paczki
 
 | Paczka | Port / transport | Opis |
 |--------|------------------|------|
-| `skillm` | — | Registry, invoke, validate |
+| `skillm` (root) | — | Registry, invoke, validate |
 | `dsl2skillm` | — | Bus CQRS + Schema + Protobuf |
 | `uri2skillm` | — | `skillm://cmd/...` → DSL |
 | `nlp2skillm` | — | NL → DSL |
@@ -107,7 +136,7 @@ Instrukcja integracji MCP: [`examples/open-webui/README.md`](examples/open-webui
 ## Testy
 
 ```bash
-pytest packages/ -q
+pytest skillm/tests packages/ -q
 ```
 
 ## Licencja

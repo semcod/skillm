@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
 ORDER=(
-  packages/skillm
+  skillm
   packages/nlp2skillm
   packages/dsl2skillm
   packages/uri2skillm

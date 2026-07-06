@@ -1,0 +1,11 @@
+# local.dev.txt — locally developed dependencies of this project (generated 2026-07-04)
+# by ~/github/local.dev.sh — DO NOT EDIT; see ~/github/local.dev.md
+# project: mcp2skillm 0.0.3 (python) at /home/tom/github/semcod/skillm/packages/mcp2skillm
+# deps declared: 4 | with local source: 3
+
+## LOCAL DEPS  (dep | required | local source (version) | installed | status)
+dsl2skillm | >=0.0.3 | /home/tom/github/semcod/skillm/packages/dsl2skillm (0.0.3) | - | NOT-INSTALLED  [pyproject.toml]
+nlp2skillm | >=0.0.3 | /home/tom/github/semcod/skillm/packages/nlp2skillm (0.0.3) | - | NOT-INSTALLED  [pyproject.toml]
+skillm | >=0.0.3 | /home/tom/github/semcod/skillm/skillm (0.0.3) | - | NOT-INSTALLED  [pyproject.toml]
+
+## EXTERNAL DEPS (no local source, 1): mcp

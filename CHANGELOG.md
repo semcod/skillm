@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2026-07-06
+
+### Docs
+- Update README.md
+- Update packages/README.md
+
+### Other
+- Update .gitignore
+- Update Makefile
+- Update install-dev.sh
+- Update packages/cli2skillm/local.dev.txt
+- Update packages/cli2skillm/pyproject.toml
+- Update packages/dsl2skillm/local.dev.txt
+- Update packages/dsl2skillm/pyproject.toml
+- Update packages/mcp2skillm/local.dev.txt
+- Update packages/mcp2skillm/pyproject.toml
+- Update packages/nlp2skillm/local.dev.txt
+- ... and 11 more files
+
 ## [0.0.3] - 2026-06-08
 
 ### Docs

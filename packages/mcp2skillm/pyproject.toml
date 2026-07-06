@@ -4,20 +4,27 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mcp2skillm"
-version = "0.1.0"
+version = "0.0.4"
 description = "MCP server for skillm — universal skill reuse for AI"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
+authors = [{ name = "Tom Softreck", email = "tom@sapletta.com" }]
 dependencies = [
-    "skillm>=0.1.0",
-    "dsl2skillm>=0.1.0",
-    "nlp2skillm>=0.1.0",
+    "skillm>=0.0.3",
+    "dsl2skillm>=0.0.3",
+    "nlp2skillm>=0.0.3",
     "mcp>=1.0",
 ]
 
 [project.scripts]
 mcp2skillm = "mcp2skillm.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/semcod/skillm"
+Repository = "https://github.com/semcod/skillm"
+Documentation = "https://github.com/semcod/skillm#readme"
+Issues = "https://github.com/semcod/skillm/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

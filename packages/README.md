@@ -1,12 +1,14 @@
-# skillm packages
+# skillm — adaptery kontroli
 
 Warstwa kontroli dla uniwersalnego reużycia skilli przez MCP/REST/CLI.
 
-## Paczki
+Główna paczka domeny: [`../skillm/`](../skillm/) (registry, invoke, validate).
+
+## Paczki (`packages/`)
 
 | Paczka | Rola |
 |--------|------|
-| `skillm` | Core — registry, invoke, validate |
+| `skillm` (root) | Core — registry, invoke, validate |
 | `dsl2skillm` | DSL + CQRS bus + Schema + Protobuf |
 | `uri2skillm` | `skillm://` → linia DSL |
 | `nlp2skillm` | NL → DSL |
@@ -70,5 +72,5 @@ flowchart TB
 
 ```bash
 bash install-dev.sh
-pytest packages/ -q
+pytest skillm/tests packages/ -q
 ```

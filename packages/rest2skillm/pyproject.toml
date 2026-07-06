@@ -4,19 +4,26 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rest2skillm"
-version = "0.1.0"
+version = "0.0.4"
 description = "REST API for skillm control DSL"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
+authors = [{ name = "Tom Softreck", email = "tom@sapletta.com" }]
 dependencies = [
-    "dsl2skillm>=0.1.0",
+    "dsl2skillm>=0.0.3",
     "fastapi>=0.110",
     "uvicorn>=0.27",
 ]
 
 [project.scripts]
 rest2skillm = "rest2skillm.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/semcod/skillm"
+Repository = "https://github.com/semcod/skillm"
+Documentation = "https://github.com/semcod/skillm#readme"
+Issues = "https://github.com/semcod/skillm/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

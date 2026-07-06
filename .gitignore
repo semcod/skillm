@@ -214,6 +214,10 @@ tempCodeRunnerFile.py
 # Ruff stuff:
 .ruff_cache/
 
+# skillm dev artifacts
+*.events.jsonl
+dist/
+
 # PyPI configuration file
 .pypirc
 
