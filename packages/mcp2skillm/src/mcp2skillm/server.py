@@ -2,9 +2,19 @@
 
 from __future__ import annotations
 
-import json
+import os
 from dataclasses import dataclass
 from typing import Any
+
+_INVOKE_ENV = "SKILLM_MCP_ALLOW_INVOKE"
+
+
+def _require_invoke(action: str) -> None:
+    enabled = os.getenv(_INVOKE_ENV, "").strip().lower() in {"1", "true", "yes", "on"}
+    if not enabled:
+        raise PermissionError(
+            f"MCP execution '{action}' is disabled; start the server with {_INVOKE_ENV}=1"
+        )
 
 
 def _require_fastmcp():
@@ -54,6 +64,7 @@ class SkillmMCPServer:
         ) -> dict[str, Any]:
             """Invoke a registered skill (python, docker, cli, rest, mcp)."""
             import json as _json
+            _require_invoke("skillm_invoke")
             return invoke_skill(name, args=_json.loads(args_json or "[]"), input_text=input_text, body=body)
 
         @self.app.tool()
@@ -64,18 +75,21 @@ class SkillmMCPServer:
         @self.app.tool()
         def skillm_run_dsl(script: str, default_file: str = "app.skillm.yaml") -> list[dict[str, Any]]:
             """Execute skillm control DSL commands (one per line)."""
+            _require_invoke("skillm_run_dsl")
             results = execute_dsl(script, default_file=default_file or None)
             return [r.to_dict() for r in results]
 
         @self.app.tool()
         def skillm_run_command(command: str, default_file: str = "app.skillm.yaml") -> dict[str, Any]:
             """Execute a single skillm control DSL command."""
+            _require_invoke("skillm_run_command")
             result = execute_dsl_line(command, default_file=default_file or None)
             return result.to_dict()
 
         @self.app.tool()
         def skillm_run_command_pb(envelope_bytes: bytes, default_file: str = "app.skillm.yaml") -> bytes:
             """Execute protobuf DslEnvelope; returns DslResult protobuf."""
+            _require_invoke("skillm_run_command_pb")
             result = dispatch(envelope_bytes, default_file=default_file or None)
             return encode_result_protobuf(result)
 
@@ -87,6 +101,7 @@ class SkillmMCPServer:
         @self.app.tool()
         def skillm_apply_nl(prompt: str, file: str = "app.skillm.yaml") -> dict[str, Any]:
             """Apply natural-language skillm control (list/validate/invoke/resolve)."""
+            _require_invoke("skillm_apply_nl")
             return apply_nl(prompt, file=file)
 
     def run(self) -> None:
