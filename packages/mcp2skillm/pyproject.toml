@@ -14,7 +14,7 @@ dependencies = [
     "skillm>=0.0.3",
     "dsl2skillm>=0.0.3",
     "nlp2skillm>=0.0.3",
-    "mcp>=1.0",
+    "mcp>=1.0,<2",
 ]
 
 [project.scripts]
