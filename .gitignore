@@ -243,3 +243,11 @@ __marimo__/
 /.subactor/receipts/
 /.subactor/cache/
 /.subactor/snapshots/
+.planfile/
+
+# koru runtime artefacts (generated)
+.planfile/.koru/
+.planfile/sprints/*.bak-*
+
+.cursor/
+.vscode/
